@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aisyah — Agih Isi Segar Yang Akan Habis</title>
+<meta name="description" content="Prototaip aplikasi penyelamat makanan hampir luput: harga dinamik ikut jam luput, dan pengagihan lebihan kepada NGO.">
+<meta name="theme-color" content="#12211B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A5%A1</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <div class="brandline">
+        <div class="logo">A<em>i</em>syah</div>
+        <div class="kicker">Prototaip · 4 Skrin / 4 Peranan</div>
+      </div>
+      <p class="tagline">Ambil sebelum luput, agih sebelum terbuang. Harga jatuh sendiri ikut jam luput — yang tak laku terus masuk barisan derma NGO.</p>
+    </div>
+    <div class="console">
+      <div>
+        <div class="lbl">Jam simulasi</div>
+        <div class="clock" id="clock">--:--</div>
+      </div>
+      <div class="speeds" id="speeds"></div>
+      <button class="ghost" data-act="reset">Set semula demo</button>
+    </div>
+  </div>
+
+  <nav class="rail" id="rail"></nav>
+
+  <div class="stage">
+    <div class="phone">
+      <div class="statusbar"><span id="sbtime">--:--</span><span>Aisyah · Prototaip</span><span>100%</span></div>
+      <div id="appbar"></div>
+      <div class="screen" id="screen"></div>
+      <div class="toasts" id="toasts"></div>
+      <div id="tabbar"></div>
+      <div id="modal"></div>
+    </div>
+
+    <aside class="notes">
+      <div class="panel">
+        <h3>Cara tunjuk kat penyelia</h3>
+        <p>Ikut 5 langkah ni — semua peranan kongsi data yang sama, jadi setiap tindakan nampak merentas skrin.</p>
+        <ol class="steps">
+          <li>Log masuk sebagai <b>Peniaga</b> (aisyah@peniaga.com / 12345), buka <b>Tambah Produk</b>, masuk satu makanan dengan luput <b>3 jam</b>. Tengok dia terus keluar di dashboard.</li>
+          <li>Tekan laju masa <b>×600</b>. Perhati meter kesegaran susut dan harga jatuh sendiri: Hijau → Kuning (−30%) → Merah (−70%).</li>
+          <li>Tukar ke <b>Pembeli</b>. Barang diskaun sama muncul dalam katalog. Buat satu tempahan sampai dapat kod pickup.</li>
+          <li>Balik ke <b>Peniaga</b>, tekan <b>Hantar ke Derma NGO</b> pada barang merah yang tak laku.</li>
+          <li>Ke <b>NGO → Request Donation</b>, kemudian <b>Sukarelawan</b> untuk Accepted → Collected → Delivered.</li>
+        </ol>
+      </div>
+
+      <div class="panel">
+        <h3>Akaun demo</h3>
+        <p>Kata laluan sama untuk keempat-empat peranan: <b>12345</b></p>
+        <div class="legend">
+          <div><span class="sw" style="background:var(--jade)"></span><span><b>Peniaga</b> <code>aisyah@peniaga.com</code></span></div>
+          <div><span class="sw" style="background:var(--amber)"></span><span><b>Pembeli</b> <code>aisyah@pembeli.com</code></span></div>
+          <div><span class="sw" style="background:var(--coral)"></span><span><b>NGO</b> <code>aisyah@ngo.com</code></span></div>
+          <div><span class="sw" style="background:#8892A8"></span><span><b>Sukarelawan</b> <code>aisyah@sukarelawan.com</code></span></div>
+        </div>
+        <p class="foot">Pengesahan dibuat dalam pelayar, jadi ia berfungsi tanpa internet. Untuk sistem sebenar, kata laluan mesti disimpan sebagai hash di pelayan.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Peraturan harga dinamik</h3>
+        <div class="legend">
+          <div><span class="sw" style="background:var(--jade)"></span><span><b>Hijau · Segar</b> <code>&gt; 12 jam · harga penuh</code></span></div>
+          <div><span class="sw" style="background:var(--amber)"></span><span><b>Kuning · Diskaun 30%</b> <code>4–12 jam</code></span></div>
+          <div><span class="sw" style="background:var(--coral)"></span><span><b>Merah · Diskaun 70%</b> <code>&lt; 4 jam · sedia diderma</code></span></div>
+          <div><span class="sw" style="background:#C9D0C6"></span><span><b>Luput</b> <code>auto-masuk barisan derma</code></span></div>
+        </div>
+        <p class="foot">Meter kesegaran = 24 bar, satu bar satu jam. Ini elemen tanda aras app: harga tak ditetapkan manual, ia diseret turun oleh jam.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Nota prototaip</h3>
+        <p>Semua data disimpan dalam ingatan pelayar sahaja — tiada backend, tiada bayaran sebenar. Set semula demo untuk mula balik dari awal. Fail ini boleh dibuka terus dari mana-mana pelayar, sesuai untuk demo luar talian.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/state.js"></script>
+<script src="assets/js/actions.js"></script>
+<script src="assets/js/views.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
