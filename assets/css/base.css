@@ -1,0 +1,36 @@
+/* Aisyah — token warna, taip, dan tetapan asas
+   Ambil sebelum luput, agih sebelum terbuang. */
+
+:root{
+  --ink:#12211B;
+  --ink-2:#243B31;
+  --paper:#EDF1EB;
+  --card:#FFFFFF;
+  --line:#D6DED2;
+  --line-2:#E6EBE3;
+  --muted:#6B7A71;
+  --jade:#1B8557;
+  --amber:#C8830A;
+  --coral:#D63F30;
+  --jade-tint:#E4F2EA;
+  --amber-tint:#FAF0DC;
+  --coral-tint:#FBE7E4;
+  --shadow:0 1px 2px rgba(18,33,27,.06), 0 8px 24px rgba(18,33,27,.07);
+  --r:14px;
+  --display:"Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
+  --body:"Public Sans", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible,[tabindex]:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
